@@ -1,6 +1,5 @@
 """
 SKD-SegFormer Complete Model Implementation
-包含所有模块的完整模型实现
 """
 import torch
 import torch.nn as nn
@@ -11,7 +10,6 @@ import math
 # ==================== Encoder: SegFormer-B0 ====================
 
 class OverlapPatchEmbed(nn.Module):
-    """重叠块嵌入 - Overlapped Patch Embedding"""
     def __init__(self, patch_size=7, stride=4, in_chans=3, embed_dim=768):
         super().__init__()
         self.proj = nn.Conv2d(in_chans, embed_dim, 
@@ -29,7 +27,6 @@ class OverlapPatchEmbed(nn.Module):
 
 
 class EfficientSelfAttention(nn.Module):
-    """高效自注意力 - Efficient Self-Attention with SR"""
     def __init__(self, dim, num_heads=8, qkv_bias=False, sr_ratio=1):
         super().__init__()
         self.num_heads = num_heads
